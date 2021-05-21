@@ -146,7 +146,7 @@ export default function Pricing({ products }) {
                 className={cn(
                   'rounded-lg shadow-sm divide-y divide-accents-2 bg-primary-2 ',
                   {
-                    'border border-pink': subscription
+                    'ring ring-blue': subscription
                       ? product.name === subscription?.prices?.products.name
                       : product.name === 'Freelancer'
                   }
@@ -188,7 +188,7 @@ export default function Pricing({ products }) {
       <div className="relative max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="relative p-4 overflow-x-auto border shadow-lg rounded-2xl">
           <div className="relative table max-w-full overflow-x-auto">
-            <div className="sticky left-0 z-10 table-header-group">
+            <div className="table-header-group">
               <div className="table-cell text-lg font-semibold text-gray-800">
                 Breakdown of features
               </div>
@@ -206,7 +206,7 @@ export default function Pricing({ products }) {
                   <div
                     key={product.id}
                     className={cn('table-cell text-center', {
-                      'border border-pink': subscription
+                      'ring ring-blue': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'
                     })}
@@ -394,7 +394,7 @@ export default function Pricing({ products }) {
                   <div
                     key={product.id}
                     className={cn('table-cell', {
-                      'border border-pink': subscription
+                      'ring ring-blue': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'
                     })}

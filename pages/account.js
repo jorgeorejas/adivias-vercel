@@ -12,10 +12,10 @@ function Card({ title, description, footer, children }) {
     <div className="w-full max-w-3xl m-auto my-8 border rounded-md border-accents-1 p">
       <div className="px-5 py-4">
         <h3 className="mb-1 text-2xl font-medium">{title}</h3>
-        <p className="text-accents-5">{description}</p>
+        <p className="text-base">{description}</p>
         {children}
       </div>
-      <div className="p-4 border-t border-accents-1 bg-primary-2 text-accents-3 rounded-b-md">
+      <div className="p-4 border-t border-base bg-primary-2 rounded-b-md">
         {footer}
       </div>
     </div>

@@ -1,5 +1,6 @@
 import MacOS from './ui/MacOS';
 import Link from 'next/link';
+import Button from '@/components/ui/Button';
 // Make a request
 
 export default function Features({ features }) {
@@ -70,6 +71,12 @@ export default function Features({ features }) {
             </div>
           </div>
         </MacOS>
+
+        <div className="flex flex-row w-full mt-16">
+          <Link href="/Features">
+            <Button className="m-auto">Show me all features</Button>
+          </Link>
+        </div>
       </div>
     </section>
   );
