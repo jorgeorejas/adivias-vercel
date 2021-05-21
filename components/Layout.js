@@ -7,8 +7,8 @@ import Footer from '@/components/ui/Footer';
 export default function Layout({ children, meta: pageMeta }) {
   const router = useRouter();
   const meta = {
-    title: 'Next.js Subscription Starter',
-    description: 'Brought to you by Vercel, Stripe, and Supabase.',
+    title: 'Adivi.as',
+    description: 'Brought to you by Jorge Orejas.',
     cardImage: '/og.png',
     ...pageMeta
   };

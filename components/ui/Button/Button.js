@@ -44,7 +44,7 @@ const Button = forwardRef((props, buttonRef) => {
     >
       {children}
       {loading && (
-        <i className="pl-2 m-0 flex">
+        <i className="flex pl-2 m-0">
           <LoadingDots />
         </i>
       )}

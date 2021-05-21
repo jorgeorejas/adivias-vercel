@@ -54,7 +54,7 @@ const SignIn = () => {
 
   if (!user)
     return (
-      <div className="w-80 flex flex-col justify-between p-3 max-w-lg m-auto my-64">
+      <div className="flex flex-col justify-between max-w-lg p-3 m-auto my-64 w-80">
         <div className="flex justify-center pb-12 ">
           <Logo width="64px" height="64px" />
         </div>
@@ -119,10 +119,10 @@ const SignIn = () => {
             </form>
           )}
 
-          <span className="pt-1 text-center text-sm">
+          <span className="pt-1 text-sm text-center">
             <a
               href="#"
-              className="text-accents-7 text-accent-9 hover:underline cursor-pointer"
+              className="cursor-pointer text-accents-7 text-accent-9 hover:underline"
               onClick={() => {
                 if (showPasswordInput) setPassword('');
                 setShowPasswordInput(!showPasswordInput);
@@ -135,11 +135,11 @@ const SignIn = () => {
             </a>
           </span>
 
-          <span className="pt-1 text-center text-sm">
+          <span className="pt-1 text-sm text-center">
             <span className="text-accents-7">Don't have an account?</span>
             {` `}
             <Link href="/signup">
-              <a className="text-accent-9 font-bold hover:underline cursor-pointer">
+              <a className="font-bold cursor-pointer text-accent-9 hover:underline">
                 Sign up.
               </a>
             </Link>
@@ -148,12 +148,12 @@ const SignIn = () => {
 
         <div className="flex items-center my-6">
           <div
-            className="border-t border-accents-2 flex-grow mr-3"
+            className="flex-grow mr-3 border-t border-accents-2"
             aria-hidden="true"
           ></div>
           <div className="text-accents-4">Or</div>
           <div
-            className="border-t border-accents-2 flex-grow ml-3"
+            className="flex-grow ml-3 border-t border-accents-2"
             aria-hidden="true"
           ></div>
         </div>

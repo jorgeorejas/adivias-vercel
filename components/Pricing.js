@@ -2,10 +2,49 @@ import cn from 'classnames';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
+import Logo from '@/components/icons/Logo';
 import Button from '@/components/ui/Button';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { useUser } from '@/utils/useUser';
+
+function Check() {
+  return (
+    <svg id="check" viewBox="0 0 20 16" className="h-4 m-auto">
+      <path
+        fill="none"
+        fill-rule="evenodd"
+        stroke="#37b679"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3"
+        d="M468 1447L475 1455 484 1443"
+        transform="translate(-466 -1441)"
+      ></path>
+    </svg>
+  );
+}
+
+function Cross() {
+  return (
+    <svg id="cross" viewBox="0 0 16 16" className="h-4 m-auto">
+      <g
+        fill="none"
+        fill-rule="evenodd"
+        stroke="#da3c3c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="3"
+      >
+        <path d="M0 12L12 0" transform="translate(2 2)"></path>
+        <path
+          d="M0 12L12 0"
+          transform="translate(2 2) matrix(-1 0 0 1 12 0)"
+        ></path>
+      </g>
+    </svg>
+  );
+}
 
 export default function Pricing({ products }) {
   const router = useRouter();
@@ -19,7 +58,7 @@ export default function Pricing({ products }) {
       return router.push('/signin');
     }
     if (subscription) {
-      return router.push('/account');
+      return routxxser.push('/account');
     }
 
     try {
@@ -40,13 +79,13 @@ export default function Pricing({ products }) {
 
   if (!products.length)
     return (
-      <section className="bg-black">
-        <div className="max-w-6xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-primary" id="pricing">
+        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center"></div>
           <p className="text-6xl font-extrabold text-white sm:text-center sm:text-6xl">
             No subscription pricing plans found. Create them in your{' '}
             <a
-              className="text-pink underline"
+              className="underline text-pink"
               href="https://dashboard.stripe.com/products"
               rel="noopener noreferrer"
               target="_blank"
@@ -60,25 +99,21 @@ export default function Pricing({ products }) {
     );
 
   return (
-    <section className="bg-black">
-      <div className="max-w-6xl mx-auto py-8 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-primary" id="pricing">
+      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Pricing Plans
+          <h1 className="text-base text-4xl font-extrabold sm:text-center sm:text-6xl">
+            Pricing tailored to you.
           </h1>
-          <p className="mt-5 text-xl text-accents-6 sm:text-center sm:text-2xl max-w-2xl m-auto">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
-          </p>
-          <div className="relative self-center mt-6 bg-primary-2 rounded-lg p-0.5 flex sm:mt-8 border border-accents-0">
+          <div className="relative self-center mt-6 bg-primary-2 rounded-lg p-0.5 flex sm:mt-8 ">
             <button
               onClick={() => setBillingInterval('month')}
               type="button"
               className={`${
                 billingInterval === 'month'
                   ? 'relative w-1/2 bg-accents-1 border-accents-0 shadow-sm text-white'
-                  : 'ml-0.5 relative w-1/2 border border-transparent text-accents-4'
-              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                  : 'ml-0.5 relative w-1/2 border border-transparent text-gray-700'
+              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none sm:w-auto sm:px-8`}
             >
               Monthly billing
             </button>
@@ -88,8 +123,8 @@ export default function Pricing({ products }) {
               className={`${
                 billingInterval === 'year'
                   ? 'relative w-1/2 bg-accents-1 border-accents-0 shadow-sm text-white'
-                  : 'ml-0.5 relative w-1/2 border border-transparent text-accents-4'
-              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                  : 'ml-0.5 relative w-1/2 border border-transparent text-gray-700'
+              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none sm:w-auto sm:px-8`}
             >
               Yearly billing
             </button>
@@ -100,7 +135,7 @@ export default function Pricing({ products }) {
             const price = product.prices.find(
               (price) => price.interval === billingInterval
             );
-            const priceString = new Intl.NumberFormat('en-US', {
+            const priceString = new Intl.NumberFormat('es-ES', {
               style: 'currency',
               currency: price.currency,
               minimumFractionDigits: 0
@@ -109,7 +144,7 @@ export default function Pricing({ products }) {
               <div
                 key={product.id}
                 className={cn(
-                  'rounded-lg shadow-sm divide-y divide-accents-2 bg-primary-2',
+                  'rounded-lg shadow-sm divide-y divide-accents-2 bg-primary-2 ',
                   {
                     'border border-pink': subscription
                       ? product.name === subscription?.prices?.products.name
@@ -118,25 +153,27 @@ export default function Pricing({ products }) {
                 )}
               >
                 <div className="p-6">
-                  <h2 className="text-2xl leading-6 font-semibold text-white">
-                    {product.name}
-                  </h2>
-                  <p className="mt-4 text-accents-5">{product.description}</p>
-                  <p className="mt-8">
-                    <span className="text-5xl font-extrabold white">
-                      {priceString}
-                    </span>
-                    <span className="text-base font-medium text-accents-8">
-                      /{billingInterval}
-                    </span>
-                  </p>
+                  <div>
+                    <h2 className="text-base text-2xl font-semibold leading-6">
+                      {product.name}
+                    </h2>
+                    <p className="mt-4 text-base">{product.description}</p>
+                    <p className="mt-8">
+                      <span className="text-base text-4xl font-bold">
+                        {priceString}
+                      </span>
+                      <span className="text-base font-medium text-accents-8">
+                        /{billingInterval}
+                      </span>
+                    </p>
+                  </div>
                   <Button
                     variant="slim"
                     type="button"
                     disabled={session && !userLoaded}
                     loading={priceIdLoading === price.id}
                     onClick={() => handleCheckout(price.id)}
-                    className="mt-8 block w-full rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-gray-900"
+                    className="block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
                   >
                     {product.name === subscription?.prices?.products.name
                       ? 'Manage'
@@ -147,55 +184,234 @@ export default function Pricing({ products }) {
             );
           })}
         </div>
-        <div>
-          <p className="mt-24 text-xs uppercase text-accents-3 text-center font-bold tracking-widest">
-            Brought to you by
-          </p>
-          <div className="flex flex-col items-center my-12 space-y-4 sm:mt-8 sm:space-y-0 md:mx-auto md:max-w-2xl sm:grid sm:gap-6 sm:grid-cols-5">
-            <div className="flex items-center justify-start">
-              <a href="https://nextjs.org" aria-label="Next.js Link">
-                <img
-                  src="/nextjs.svg"
-                  alt="Next.js Logo"
-                  className="h-12 text-primary"
-                />
-              </a>
+      </div>
+      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+        <div className="p-4 border shadow-lg rounded-2xl">
+          <div className="table w-full overflow-x-auto">
+            <div className="table-header-group">
+              <div className="table-cell text-lg font-semibold text-gray-800">
+                Breakdown of features
+              </div>
+              {products.map((product) => {
+                const price = product.prices.find(
+                  (price) => price.interval === billingInterval
+                );
+                const priceString = new Intl.NumberFormat('es-ES', {
+                  style: 'currency',
+                  currency: price.currency,
+                  minimumFractionDigits: 0
+                }).format(price.unit_amount / 100);
+
+                return (
+                  <div
+                    key={product.id}
+                    className={cn('table-cell text-center', {
+                      'border border-pink': subscription
+                        ? product.name === subscription?.prices?.products.name
+                        : product.name === 'Freelancer'
+                    })}
+                  >
+                    <span className="text-xl font-bold capitalize ">
+                      {product.name}
+                    </span>
+                    <span className="text-lg text-gray-500">
+                      {' '}
+                      <span>⤳</span> {priceString}/{billingInterval}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
-            <div className="flex items-center justify-start">
-              <a href="https://vercel.com" aria-label="Vercel.com Link">
-                <img
-                  src="/vercel.svg"
-                  alt="Vercel.com Logo"
-                  className="h-6 text-primary"
-                />
-              </a>
+            <br />
+            <div className="table-row-group font-medium text-gray-700">
+              {/*Dashboard*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Stats Dashboard</div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Embeds*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Stats Embeds</div>
+                <div className="table-cell text-center">1️</div>
+                <div className="table-cell text-center">5</div>
+                <div className="table-cell text-center">15</div>
+                <div className="table-cell text-center">∞</div>
+              </div>
+              {/*Autopublish Content*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Autopublish Content</div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Links*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Links</div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Growth Assistant*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Growth Assistant</div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*WP*/}
+              <div className="table-row h-12">
+                <div className="table-cell">WP Posts & Stories</div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Potential Ambassador Identifier*/}
+              <div className="table-row h-12">
+                <div className="table-cell">
+                  Potential Ambassador Identifier
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Giveaways*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Giveaways</div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Cross />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Documentation*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Documentation</div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
+              {/*Support*/}
+              <div className="table-row h-12">
+                <div className="table-cell">Support</div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+                <div className="table-cell">
+                  <Check />
+                </div>
+              </div>
             </div>
-            <div className="flex items-center justify-start">
-              <a href="https://stripe.com" aria-label="stripe.com Link">
-                <img
-                  src="/stripe.svg"
-                  alt="stripe.com Logo"
-                  className="h-12 text-primary"
-                />
-              </a>
-            </div>
-            <div className="flex items-center justify-start">
-              <a href="https://supabase.io" aria-label="supabase.io Link">
-                <img
-                  src="/supabase.svg"
-                  alt="supabase.io Logo"
-                  className="h-10 text-primary"
-                />
-              </a>
-            </div>
-            <div className="flex items-center justify-start">
-              <a href="https://github.com" aria-label="github.com Link">
-                <img
-                  src="/github.svg"
-                  alt="github.com Logo"
-                  className="h-8 text-primary"
-                />
-              </a>
+            <div className="table-footer-group items-center place-items-center ">
+              <div className="table-cell text-lg font-medium tracking-wide ">
+                <span className="text-gray-700">Try </span>
+                <span className="text-base">
+                  <Logo />
+                </span>
+              </div>
+              {products.map((product) => {
+                const price = product.prices.find(
+                  (price) => price.interval === billingInterval
+                );
+                return (
+                  <div
+                    key={product.id}
+                    className={cn('table-cell', {
+                      'border border-pink': subscription
+                        ? product.name === subscription?.prices?.products.name
+                        : product.name === 'Freelancer'
+                    })}
+                  >
+                    <Button
+                      variant="slim"
+                      type="button"
+                      disabled={session && !userLoaded}
+                      loading={priceIdLoading === price.id}
+                      onClick={() => handleCheckout(price.id)}
+                      className="mx-8 text-sm font-semibold text-center text-white rounded-md w-8/10 hover:underline"
+                    >
+                      Activate {product.name}
+                    </Button>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

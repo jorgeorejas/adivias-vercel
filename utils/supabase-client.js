@@ -11,7 +11,7 @@ export const getActiveProductsWithPrices = async () => {
     .select('*, prices(*)')
     .eq('active', true)
     .eq('prices.active', true)
-    .order('metadata->index')
+    .order('metadata->order')
     .order('unit_amount', { foreignTable: 'prices' });
 
   if (error) {
@@ -30,3 +30,4 @@ export const updateUserName = async (user, name) => {
     })
     .eq('id', user.id);
 };
+
