@@ -5,7 +5,7 @@ import { getActiveProductsWithPrices } from '@/utils/supabase-client';
 export default function PricingPage({ products, features }) {
   return (
     <>
-      <Features features={features} />
+      <Features />
       <Pricing products={products} />
     </>
   );
