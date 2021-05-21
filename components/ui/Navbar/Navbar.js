@@ -70,7 +70,7 @@ const Navbar = () => {
                   </Link>
                   <Link href="#">
                     <a className="{s.link}" onClick={() => signOut()}>
-                      <div className="items-center justify-center w-full px-3 py-2 font-semibold text-blue-200 bg-gray-800 rounded-full lg:inline-flex lg:w-auto hover:underline hover:text-white ">
+                      <div className="items-center justify-center w-full px-3 py-2 font-semibold text-white bg-gray-800 rounded-full lg:inline-flex lg:w-auto hover:underline hover:text-white ">
                         Log out
                       </div>
                     </a>
