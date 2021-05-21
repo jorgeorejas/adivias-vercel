@@ -29,7 +29,7 @@ const MacOS = forwardRef((props) => {
           <h1 className="h-8 align-middle">{title}</h1>
           <span></span>
         </div>
-        <div className="flex flex-wrap items-start content-around justify-around w-full h-full p-4 mt-8 space-x-4 space-y-4 overflow-y-auto">
+        <div className="flex flex-wrap items-start content-around justify-around w-full h-full p-1 mt-8 space-x-4 space-y-4 overflow-auto lg:p-4">
           {children}
           {loading && <i className="flex pl-2 m-0"></i>}
         </div>

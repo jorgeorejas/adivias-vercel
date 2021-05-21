@@ -1,11 +1,11 @@
-import Features from '@/components/Features';
+import Features from '@/components/theFeatures';
 import Pricing from '@/components/Pricing';
 import { getActiveProductsWithPrices } from '@/utils/supabase-client';
 
-export default function PricingPage({ products, features }) {
+export default function PricingPage({ products, thefeatures }) {
   return (
     <>
-      <Features />
+      <Features features={thefeatures} />
       <Pricing products={products} />
     </>
   );

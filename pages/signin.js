@@ -55,7 +55,7 @@ const SignIn = () => {
     return (
       <div className="flex flex-col justify-between max-w-lg p-3 m-auto my-64 w-80">
         <div className="flex justify-center pb-12 ">
-          <Logo width="64px" height="64px" />
+          <Logo />
         </div>
         <div className="flex flex-col space-y-4">
           {message.content && (
@@ -121,7 +121,7 @@ const SignIn = () => {
           <span className="pt-1 text-sm text-center">
             <a
               href="#"
-              className="cursor-pointer text-accents-7 text-accent-9 hover:underline"
+              className="text-base cursor-pointer hover:underline"
               onClick={() => {
                 if (showPasswordInput) setPassword('');
                 setShowPasswordInput(!showPasswordInput);
@@ -135,10 +135,10 @@ const SignIn = () => {
           </span>
 
           <span className="pt-1 text-sm text-center">
-            <span className="text-accents-7">Don't have an account?</span>
+            <span className="text-base">Don't have an account?</span>
             {` `}
             <Link href="/signup">
-              <a className="font-bold cursor-pointer text-accent-9 hover:underline">
+              <a className="text-base font-bold cursor-pointer hover:underline">
                 Sign up.
               </a>
             </Link>
@@ -150,7 +150,7 @@ const SignIn = () => {
             className="flex-grow mr-3 border-t border-accents-2"
             aria-hidden="true"
           ></div>
-          <div className="text-accents-4">Or</div>
+          <div className="text-base">Or</div>
           <div
             className="flex-grow ml-3 border-t border-accents-2"
             aria-hidden="true"
@@ -161,9 +161,9 @@ const SignIn = () => {
           variant="slim"
           type="submit"
           disabled={loading}
-          onClick={() => handleOAuthSignIn('github')}
+          onClick={() => handleOAuthSignIn('google')}
         >
-          <span className="ml-2">Continue with GitHub</span>
+          <span className="ml-2">Continue with Google</span>
         </Button>
       </div>
     );
