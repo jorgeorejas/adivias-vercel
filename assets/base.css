@@ -1,0 +1,179 @@
+:root {
+  --primary: #fff;
+  --primary-2: #f1f1f1;
+  --secondary: @apply bg-gray-800;
+  --secondary-2: #f1f3f5;
+  --hover: rgba(255, 255, 255, 0.075);
+  --hover-1: rgba(255, 255, 255, 0.15);
+  --hover-2: rgba(255, 255, 255, 0.25);
+  --selection: var(--violet);
+
+  --text-base: @apply text-gray-800;
+  --text-primary: var(--text-base);
+  --text-secondary: @apply text-gray-50;
+
+  --accents-0: #212529;
+  --accents-1: #343a40;
+  --accents-2: #495057;
+  --accents-3: #868e96;
+  --accents-4: #adb5bd;
+  --accents-5: #ced4da;
+  --accents-6: #dee2e6;
+  --accents-7: #e9ecef;
+  --accents-8: #f1f3f5;
+  --accents-9: #f8f9fa;
+
+  --cyan: #22b8cf;
+  --green: #37b679;
+  --red: #da3c3c;
+  --pink: #e64980;
+  --purple: #f81ce5;
+  --blue: #bfdbfe;
+  --violet-light: #7048e8;
+  --violet: #5f3dc4;
+
+  --font-sans: -apple-system, system-ui, BlinkMacSystemFont, 'Helvetica Neue',
+    'Helvetica', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  @apply outline-none ring-2 ring-blue ring-opacity-50;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  font-feature-settings: 'case' 1, 'rlig' 1, 'calt' 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-2);
+  color: var(--text-primary);
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+;
+}
+
+.h-1\/10 {height: 10%;}
+.h-2\/10 {height: 20%;}
+.h-3\/10 {height: 30%;}
+.h-4\/10 {height: 40%;}
+.h-5\/10 {height: 50%;}
+.h-6\/10 {height: 60%;}
+.h-7\/10 {height: 70%;}
+.h-8\/10 {height: 80%;}
+.h-9\/10 {height: 90%;}
+
+.h-1\/10 {height: 10%;}
+.h-2\/10 {height: 20%;}
+.h-3\/10 {height: 30%;}
+.h-4\/10 {height: 40%;}
+.h-5\/10 {height: 50%;}
+.h-6\/10 {height: 60%;}
+.h-7\/10 {height: 70%;}
+.h-8\/10 {height: 80%;}
+.h-9\/10 {height: 90%;}
+
+.min-h-1\/10 {min-height: 10vh;}
+.min-h-2\/10 {min-height: 20vh;}
+.min-h-3\/10 {min-height: 30vh;}
+.min-h-4\/10 {min-height: 40vh;}
+.min-h-5\/10 {min-height: 50vh;}
+.min-h-6\/10 {min-height: 60vh;}
+.min-h-7\/10 {min-height: 70vh;}
+.min-h-8\/10 {min-height: 80vh;}
+.min-h-9\/10 {min-height: 90vh;}
+
+
+.max-h-1\/10 {max-height: 10vh;}
+.max-h-2\/10 {max-height: 20vh;}
+.max-h-3\/10 {max-height: 30vh;}
+.max-h-4\/10 {max-height: 40vh;}
+.max-h-5\/10 {max-height: 50vh;}
+.max-h-6\/10 {max-height: 60vh;}
+.max-h-7\/10 {max-height: 70vh;}
+.max-h-8\/10 {max-height: 80vh;}
+.max-h-9\/10 {max-height: 90vh;}
+
+.min-w-1\/10 {min-width: 10vw;}
+.min-w-2\/10 {min-width: 20vw;}
+.min-w-3\/10 {min-width: 30vw;}
+.min-w-4\/10 {min-width: 40vw;}
+.min-w-5\/10 {min-width: 50vw;}
+.min-w-6\/10 {min-width: 60vw;}
+.min-w-7\/10 {min-width: 70vw;}
+.min-w-8\/10 {min-width: 80vw;}
+.min-w-9\/10 {min-width: 90vw;}
+
+.max-w-1\/10 {max-width: 10vw;}
+.max-w-2\/10 {max-width: 20vw;}
+.max-w-3\/10 {max-width: 30vw;}
+.max-w-4\/10 {max-width: 40vw;}
+.max-w-5\/10 {max-width: 50vw;}
+.max-w-6\/10 {max-width: 60vw;}
+.max-w-7\/10 {max-width: 70vw;}
+.max-w-8\/10 {max-width: 80vw;}
+.max-w-9\/10 {max-width: 90vw;}
+
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
