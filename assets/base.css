@@ -64,6 +64,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary-2);
   color: var(--text-primary);
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 body {

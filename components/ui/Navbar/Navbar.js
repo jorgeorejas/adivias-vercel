@@ -44,7 +44,7 @@ const Navbar = () => {
             navbarOpen ? '' : 'hidden'
           }   w-full lg:inline-flex lg:flex-grow lg:content-center lg:w-auto lg:self-center`}
         >
-          <div className="flex flex-col items-start w-full lg:self-center lg:justify-center lg:inline-flex lg:flex-row lg:ml-auto lg:items-center lg:h-auto">
+          <div className="flex flex-col items-start w-full lg:self-center lg:justify-center lg:inline-flex lg:space-x-4 lg:flex-row lg:ml-auto lg:items-center lg:h-auto">
             <Link href="/#features">
               <a className={s.link}>Features</a>
             </Link>

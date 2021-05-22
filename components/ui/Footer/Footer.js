@@ -45,7 +45,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="invisible col-span-1 lg:col-span-2">
+        <div className="invisible hidden col-span-1 md:block lg:col-span-2">
           <ul className="flex flex-col flex-initial md:flex-1">
             <li className="py-3 md:py-0 md:pb-4">
               <p className="font-bold transition duration-150 ease-in-out text-primary hover:text-accents-6">

@@ -146,7 +146,7 @@ export default function Pricing({ products }) {
                 className={cn(
                   'rounded-lg shadow-sm divide-y divide-accents-2 bg-primary-2 ',
                   {
-                    'ring ring-blue': subscription
+                    '': subscription
                       ? product.name === subscription?.prices?.products.name
                       : product.name === 'Freelancer'
                   }
@@ -185,7 +185,7 @@ export default function Pricing({ products }) {
           })}
         </div>
       </div>
-      <div className="relative max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+      <div className="relative max-w-6xl px-4 py-8 mx-auto sm:px-6 lg:px-4">
         <div className="relative p-4 overflow-x-auto border shadow-lg rounded-2xl">
           <div className="relative table max-w-full overflow-x-auto">
             <div className="table-header-group">
@@ -206,7 +206,7 @@ export default function Pricing({ products }) {
                   <div
                     key={product.id}
                     className={cn('table-cell text-center', {
-                      'ring ring-blue': subscription
+                      '': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'
                     })}
@@ -223,9 +223,15 @@ export default function Pricing({ products }) {
               })}
             </div>
             <br />
-            <div className="table-row-group font-medium text-gray-700">
+            <div className="table-column-group">
+              <div className="table-column">Free</div>
+              <div className="table-column">Basic</div>
+              <div className="table-column">Advanced</div>
+              <div className="table-column">Pro</div>
+            </div>
+            <div className="table-row-group font-medium text-gray-700 ">
               {/*Dashboard*/}
-              <div className="table-row h-12">
+              <div className="table-row h-12 ">
                 <div className="table-cell">Stats Dashboard</div>
                 <div className="table-cell">
                   <Check />
@@ -394,7 +400,7 @@ export default function Pricing({ products }) {
                   <div
                     key={product.id}
                     className={cn('table-cell', {
-                      'ring ring-blue': subscription
+                      '': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'
                     })}
