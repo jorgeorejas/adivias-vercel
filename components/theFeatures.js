@@ -17,7 +17,7 @@ export default function Features({ features }) {
               <Button className="w-8/12 m-auto">Take me to the features</Button>
             </Link>
           </div>
-          <div className="h-48 overflow-hidden lg:h-auto ">
+          <div className="h-48 m-auto overflow-hidden lg:h-auto ">
             <Phone>
               <Example />
             </Phone>

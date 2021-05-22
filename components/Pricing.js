@@ -112,7 +112,7 @@ export default function Pricing({ products }) {
               className={`${
                 billingInterval === 'month'
                   ? 'relative w-1/2 bg-accents-1 border-accents-0 shadow-sm text-white'
-                  : 'ml-0.5 relative w-1/2 border border-transparent text-gray-700'
+                  : 'ml-0.5 relative w-1/2 border  ransparent text-gray-700'
               } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none sm:w-auto sm:px-8`}
             >
               Monthly billing
@@ -123,13 +123,15 @@ export default function Pricing({ products }) {
               className={`${
                 billingInterval === 'year'
                   ? 'relative w-1/2 bg-accents-1 border-accents-0 shadow-sm text-white'
-                  : 'ml-0.5 relative w-1/2 border border-transparent text-gray-700'
+                  : 'ml-0.5 relative w-1/2 border  ransparent text-gray-700'
               } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none sm:w-auto sm:px-8`}
             >
               Yearly billing
               <p
                 className={`${
-                  billingInterval === 'year' ? 'bg-blue text-gray-800' : 'hidden'
+                  billingInterval === 'year'
+                    ? 'bg-blue text-gray-800'
+                    : 'hidden'
                 } absolute -top-6 -right-16  px-2 py-1 rounded`}
               >
                 Two months discount
@@ -197,9 +199,9 @@ export default function Pricing({ products }) {
           <h1 className="mb-4 font-extrabold text-gray-500 uppercase lg:hidden">
             Scroll to check all features →
           </h1>
-          <div className="relative table max-w-full overflow-x-auto">
+          <div className="relative table max-w-full overflow-x-auto ">
             <div className="table-header-group">
-              <div className="table-cell text-lg font-semibold text-gray-800">
+              <div className="table-cell text-lg font-semibold text-gray-800 align-middle">
                 Breakdown of features
               </div>
               {products.map((product) => {
@@ -215,7 +217,7 @@ export default function Pricing({ products }) {
                 return (
                   <div
                     key={product.id}
-                    className={cn('table-cell text-center', {
+                    className={cn('table-cell align-middle text-center ', {
                       '': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'
@@ -242,161 +244,184 @@ export default function Pricing({ products }) {
             <div className="table-row-group font-medium text-gray-700 ">
               {/*Dashboard*/}
               <div className="table-row h-12 ">
-                <div className="table-cell">Stats Dashboard</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  Stats Dashboard
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Embeds*/}
               <div className="table-row h-12">
-                <div className="table-cell">Stats Embeds</div>
-                <div className="table-cell text-center">1️</div>
-                <div className="table-cell text-center">5</div>
-                <div className="table-cell text-center">15</div>
-                <div className="table-cell text-center">∞</div>
+                <div className="table-cell align-middle border-b">
+                  Stats Embeds
+                </div>
+                <div className="table-cell text-center align-middle border-b">
+                  1️
+                </div>
+                <div className="table-cell text-center align-middle border-b">
+                  5
+                </div>
+                <div className="table-cell text-center align-middle border-b">
+                  15
+                </div>
+                <div className="table-cell text-center align-middle border-b">
+                  ∞
+                </div>
               </div>
               {/*Autopublish Content*/}
               <div className="table-row h-12">
-                <div className="table-cell">Autopublish Content</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  Autopublish Content
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Links*/}
               <div className="table-row h-12">
-                <div className="table-cell">Links</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">Links</div>
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Growth Assistant*/}
               <div className="table-row h-12">
-                <div className="table-cell">Growth Assistant</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  Growth Assistant
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*WP*/}
               <div className="table-row h-12">
-                <div className="table-cell">WP Posts & Stories</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  WP Posts & Stories
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Potential Ambassador Identifier*/}
               <div className="table-row h-12">
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   Potential Ambassador Identifier
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Giveaways*/}
               <div className="table-row h-12">
-                <div className="table-cell">Giveaways</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  Giveaways
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Cross />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Documentation*/}
               <div className="table-row h-12">
-                <div className="table-cell">Documentation</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
+                  Documentation
+                </div>
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle border-b">
                   <Check />
                 </div>
               </div>
               {/*Support*/}
               <div className="table-row h-12">
-                <div className="table-cell">Support</div>
-                <div className="table-cell">
+                <div className="table-cell align-middle">Support</div>
+                <div className="table-cell align-middle">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle">
                   <Check />
                 </div>
-                <div className="table-cell">
+                <div className="table-cell align-middle">
                   <Check />
                 </div>
               </div>
             </div>
+            <br />
             <div className="table-footer-group items-center place-items-center ">
-              <div className="table-cell text-lg font-medium tracking-wide ">
+              <div className="table-cell text-lg font-medium tracking-wide align-middle ">
                 <span className="text-gray-700">Try </span>
                 <span className="text-base">
                   <Logo />
@@ -409,7 +434,7 @@ export default function Pricing({ products }) {
                 return (
                   <div
                     key={product.id}
-                    className={cn('table-cell', {
+                    className={cn('table-cell align-middle  ', {
                       '': subscription
                         ? product.name === subscription?.prices?.products.name
                         : product.name === 'Freelancer'

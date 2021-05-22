@@ -6,15 +6,15 @@ const Phone = forwardRef((props) => {
 
   return (
     <Component className={className}>
-      <div class={s.iphone}>
+      <div className={s.iphone}>
         <div className={s.pill} />
         <div className={s.header}>
           <div className={s.tof} />
           <div className={s.cam} />
           <div className={s.lidar} />
         </div>
-        <div class={s.side}>
-          <div class={s.screen}>{children}</div>
+        <div className={s.side}>
+          <div className={s.screen}>{children}</div>
         </div>
         <div className={s.line} />
         <div className={s.volume}></div>
