@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="grid grid-cols-1 gap-8 py-12 m-auto transition-colors duration-150 lg:max-w-5xl lg:grid-cols-12 text-primary">
         <div className="col-span-1 lg:col-span-2">
           <Link href="/">
-            <a>
+            <a >
               <Logo />
             </a>
           </Link>
@@ -37,7 +37,7 @@ export default function Footer() {
               </Link>
             </li>
             <li className="py-3 md:py-0 md:pb-4">
-              <Link href="/">
+              <Link href="/open">
                 <a className="transition duration-150 ease-in-out text-primary hover:text-accents-6">
                   Open
                 </a>

@@ -1,12 +1,13 @@
 import Features from '@/components/theFeatures';
 import Pricing from '@/components/Pricing';
+import Cookies from '@/components/ui/Cookies';
 import { getActiveProductsWithPrices } from '@/utils/supabase-client';
-
 export default function PricingPage({ products, thefeatures }) {
   return (
     <>
       <Features features={thefeatures} />
       <Pricing products={products} />
+      <Cookies />
     </>
   );
 }

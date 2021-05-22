@@ -1,5 +1,8 @@
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  variants: {
+    animation: ['motion-reduce']
+  },
   theme: {
     extend: {
       maxWidth: {

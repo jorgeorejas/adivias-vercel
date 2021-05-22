@@ -127,6 +127,13 @@ export default function Pricing({ products }) {
               } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none sm:w-auto sm:px-8`}
             >
               Yearly billing
+              <p
+                className={`${
+                  billingInterval === 'year' ? 'bg-blue text-gray-800' : 'hidden'
+                } absolute -top-6 -right-16  px-2 py-1 rounded`}
+              >
+                Two months discount
+              </p>
             </button>
           </div>
         </div>
@@ -138,7 +145,7 @@ export default function Pricing({ products }) {
             const priceString = new Intl.NumberFormat('es-ES', {
               style: 'currency',
               currency: price.currency,
-              minimumFractionDigits: 0
+              minimumFractionDigits: 2
             }).format(price.unit_amount / 100);
             return (
               <div
@@ -187,6 +194,9 @@ export default function Pricing({ products }) {
       </div>
       <div className="relative max-w-6xl px-4 py-8 mx-auto sm:px-6 lg:px-4">
         <div className="relative p-4 overflow-x-auto border shadow-lg rounded-2xl">
+          <h1 className="mb-4 font-extrabold text-gray-500 uppercase lg:hidden">
+            Scroll to check all features →
+          </h1>
           <div className="relative table max-w-full overflow-x-auto">
             <div className="table-header-group">
               <div className="table-cell text-lg font-semibold text-gray-800">
@@ -199,7 +209,7 @@ export default function Pricing({ products }) {
                 const priceString = new Intl.NumberFormat('es-ES', {
                   style: 'currency',
                   currency: price.currency,
-                  minimumFractionDigits: 0
+                  minimumFractionDigits: 2
                 }).format(price.unit_amount / 100);
 
                 return (
