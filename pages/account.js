@@ -51,77 +51,79 @@ export default function Account() {
     }).format(subscription.prices.unit_amount / 100);
 
   return (
-    <section className="mb-32 bg-primary">
-      <div className="max-w-6xl px-4 pt-8 pb-8 mx-auto sm:pt-24 sm:px-6 lg:px-8">
-        <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-primary sm:text-center sm:text-6xl">
-            Account
-          </h1>
-          <p className="max-w-2xl m-auto mt-5 text-base text-xl sm:text-center sm:text-2xl">
-            We partnered with Stripe for a simplified billing.
-          </p>
+    <Layout>
+      <section className="mb-32 bg-primary">
+        <div className="max-w-6xl px-4 pt-8 pb-8 mx-auto sm:pt-24 sm:px-6 lg:px-8">
+          <div className="sm:flex sm:flex-col sm:align-center">
+            <h1 className="text-4xl font-extrabold text-primary sm:text-center sm:text-6xl">
+              Account
+            </h1>
+            <p className="max-w-2xl m-auto mt-5 text-base text-xl sm:text-center sm:text-2xl">
+              We partnered with Stripe for a simplified billing.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="p-4">
-        <Card
-          title="Your Plan"
-          description={
-            subscriptionName &&
-            `You are currently on the ${subscriptionName} plan.`
-          }
-          footer={
-            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-              <p className="pb-4 sm:pb-0">Manage your subscription.</p>
-              <Button
-                variant="slim"
-                loading={loading}
-                disabled={loading || !subscription}
-                onClick={redirectToCustomerPortal}
-              >
-                Open customer portal
-              </Button>
+        <div className="p-4">
+          <Card
+            title="Your Plan"
+            description={
+              subscriptionName &&
+              `You are currently on the ${subscriptionName} plan.`
+            }
+            footer={
+              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                <p className="pb-4 sm:pb-0">Manage your subscription.</p>
+                <Button
+                  variant="slim"
+                  loading={loading}
+                  disabled={loading || !subscription}
+                  onClick={redirectToCustomerPortal}
+                >
+                  Open customer portal
+                </Button>
+              </div>
+            }
+          >
+            <div className="mt-8 mb-4 text-xl font-semibold">
+              {!userLoaded ? (
+                <div className="h-12 mb-6">
+                  <LoadingDots />
+                </div>
+              ) : subscriptionPrice ? (
+                `${subscriptionPrice}/${subscription.prices.interval}`
+              ) : (
+                <Link href="/">
+                  <a>Choose your plan</a>
+                </Link>
+              )}
             </div>
-          }
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            {!userLoaded ? (
-              <div className="h-12 mb-6">
-                <LoadingDots />
-              </div>
-            ) : subscriptionPrice ? (
-              `${subscriptionPrice}/${subscription.prices.interval}`
-            ) : (
-              <Link href="/">
-                <a>Choose your plan</a>
-              </Link>
-            )}
-          </div>
-        </Card>
-        <Card
-          title="Your Name"
-          description="Please enter your full name, or a display name you are comfortable with."
-          footer={<p>Please use 64 characters at maximum.</p>}
-        >
-          <div className="mt-8 mb-4 text-xl font-semibold">
-            {userDetails ? (
-              `${userDetails?.full_name ?? ''}`
-            ) : (
-              <div className="h-8 mb-6">
-                <LoadingDots />
-              </div>
-            )}
-          </div>
-        </Card>
-        <Card
-          title="Your Email"
-          description="Please enter the email address you want to use to login."
-          footer={<p>We will email you to verify the change.</p>}
-        >
-          <p className="mt-8 mb-4 text-xl font-semibold">
-            {user ? user.email : undefined}
-          </p>
-        </Card>
-      </div>
-    </section>
+          </Card>
+          <Card
+            title="Your Name"
+            description="Please enter your full name, or a display name you are comfortable with."
+            footer={<p>Please use 64 characters at maximum.</p>}
+          >
+            <div className="mt-8 mb-4 text-xl font-semibold">
+              {userDetails ? (
+                `${userDetails?.full_name ?? ''}`
+              ) : (
+                <div className="h-8 mb-6">
+                  <LoadingDots />
+                </div>
+              )}
+            </div>
+          </Card>
+          <Card
+            title="Your Email"
+            description="Please enter the email address you want to use to login."
+            footer={<p>We will email you to verify the change.</p>}
+          >
+            <p className="mt-8 mb-4 text-xl font-semibold">
+              {user ? user.email : undefined}
+            </p>
+          </Card>
+        </div>
+      </section>
+    </Layout>
   );
 }

@@ -132,9 +132,9 @@ export default function Pricing({ products }) {
                   billingInterval === 'year'
                     ? 'bg-blue text-gray-800'
                     : 'hidden'
-                } absolute -top-6 -right-16  px-2 py-1 rounded`}
+                } absolute lg:-right-16 -right-4 px-2 py-1 rounded -top-6`}
               >
-                Two months discount
+                Two months <br className="hidden" /> off
               </p>
             </button>
           </div>

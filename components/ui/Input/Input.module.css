@@ -1,5 +1,5 @@
 .root {
-  @apply w-full px-3 py-2 transition duration-150 ease-in-out border appearance-none text-primary bg-primary-2 border-accents-3;
+  @apply w-full h-full px-3 py-2 text-base transition duration-150 ease-in-out border bg-primary;
 }
 
 .root:focus {

@@ -7,6 +7,7 @@ import Input from '@/components/ui/Input';
 import Logo from '@/components/icons/Logo';
 import { updateUserName } from '@/utils/supabase-client';
 import { useUser } from '@/utils/useUser';
+import Layout from '@/components/Layout';
 
 const SignUp = () => {
   const [user, setUser] = useState(null);
@@ -47,50 +48,65 @@ const SignUp = () => {
   }, [user]);
 
   return (
-    <form
-      onSubmit={handleSignup}
-      className="flex flex-col justify-between max-w-lg p-3 m-auto my-64 w-80"
-    >
-      <div className="flex justify-center pb-12 ">
-        <Logo />
-      </div>
-      <div className="flex flex-col space-y-4">
-        {message.content && (
-          <div
-            className={`${
-              message.type === 'error' ? 'text-pink' : 'text-green'
-            } border ${
-              message.type === 'error' ? 'border-pink' : 'border-green'
-            } p-3`}
+    <>
+      <Layout>
+        <div className="no-layout">
+          <form
+            onSubmit={handleSignup}
+            className="flex flex-col self-center max-w-lg p-3 m-auto w-80"
           >
-            {message.content}
-          </div>
-        )}
-        <Input placeholder="Name" onChange={setName} />
-        <Input type="email" placeholder="Email" onChange={setEmail} required />
-        <Input type="password" placeholder="Password" onChange={setPassword} />
-        <div className="flex flex-col w-full pt-2">
-          <Button
-            variant="slim"
-            type="submit"
-            loading={loading}
-            disabled={loading || !email.length || !password.length}
-          >
-            Sign up
-          </Button>
-        </div>
+            <div className="flex justify-center pb-12 ">
+              <Logo />
+            </div>
+            <div className="flex flex-col space-y-4">
+              {message.content && (
+                <div
+                  className={`${
+                    message.type === 'error' ? 'text-pink' : 'text-green'
+                  } border ${
+                    message.type === 'error' ? 'border-pink' : 'border-green'
+                  } p-3`}
+                >
+                  {message.content}
+                </div>
+              )}
+              <Input placeholder="Name" onChange={setName} />
+              <Input
+                type="email"
+                placeholder="Email"
+                onChange={setEmail}
+                required
+              />
+              <Input
+                type="password"
+                placeholder="Password"
+                onChange={setPassword}
+              />
+              <div className="flex flex-col w-full pt-2">
+                <Button
+                  variant="slim"
+                  type="submit"
+                  loading={loading}
+                  disabled={loading || !email.length || !password.length}
+                >
+                  Sign up
+                </Button>
+              </div>
 
-        <span className="pt-1 text-sm text-center">
-          <span className="text-secondary">Do you have an account?</span>
-          {` `}
-          <Link href="/signin">
-            <a className="font-bold cursor-pointer text-secondary hover:underline">
-              Sign in.
-            </a>
-          </Link>
-        </span>
-      </div>
-    </form>
+              <span className="pt-1 text-sm text-center">
+                <span className="text-secondary">Do you have an account?</span>
+                {` `}
+                <Link href="/signin">
+                  <a className="font-bold cursor-pointer text-secondary hover:underline">
+                    Sign in.
+                  </a>
+                </Link>
+              </span>
+            </div>
+          </form>
+        </div>
+      </Layout>
+    </>
   );
 };
 

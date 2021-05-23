@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 export default function Cookies() {
   const [cookiesAccept, setCookiesAccept] = React.useState(false);
+
   return (
     <div
       className={`${
