@@ -8,8 +8,9 @@ export default function Layout({ children, meta: pageMeta }) {
   const router = useRouter();
   const meta = {
     title: 'Adivi.as',
-    description: 'Brought to you by Jorge Orejas.',
-    cardImage: '/og.png',
+    description:
+      'All-in-one social media analytics & toolbox. Brought to you by Jorge Orejas.',
+    cardImage: '/cardImage.png',
     ...pageMeta
   };
 
@@ -18,11 +19,11 @@ export default function Layout({ children, meta: pageMeta }) {
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
-        <link href="/favicon.ico" rel="shortcut icon" />
+        <link href="/favicon.svg" rel="shortcut icon" />
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://subscription-starter.vercel.app${router.asPath}`}
+          content={`https://adivias.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={meta.title} />
@@ -30,7 +31,7 @@ export default function Layout({ children, meta: pageMeta }) {
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.cardImage} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@vercel" />
+        <meta name="twitter:site" content="@orejasjorge" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.cardImage} />
