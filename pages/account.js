@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 import LoadingDots from '@/components/ui/LoadingDots';
+import Layout from '@/components/Layout';
 import Button from '@/components/ui/Button';
 import { useUser } from '@/utils/useUser';
 import { postData } from '@/utils/helpers';
