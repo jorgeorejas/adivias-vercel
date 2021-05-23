@@ -64,15 +64,15 @@ const Navbar = () => {
             <div className="flex justify-end flex-1 space-x-8">
               {user ? (
                 <>
-                  <Link href="/dashboard">
+                  <Link href="/account">
+                    <a className={s.link}>Account</a>
+                  </Link>
+                  <Link href="/app">
                     <a>
                       <div className="items-center justify-center w-full px-3 py-2 font-semibold bg-gray-800 rounded-md text-blue lg:inline-flex lg:w-auto hover:underline hover:text-white">
                         Dashboard
                       </div>
                     </a>
-                  </Link>
-                  <Link href="/account">
-                    <a className={s.link}>Account</a>
                   </Link>
                   <Link href="#">
                     <a className="{s.link}" onClick={() => signOut()}>

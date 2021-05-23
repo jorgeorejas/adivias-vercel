@@ -1,7 +1,14 @@
 import Logo from '@/components/icons/Logo';
 import Input from '@/components/ui/Input';
+import { useUser } from '@/utils/useUser';
 
 export default function SaaS() {
+  const { userLoaded, user, session, userDetails, subscription } = useUser();
+
+  useEffect(() => {
+    if (!user) router.replace('/signin');
+  }, [user]);
+
   return (
     <>
       <div className="min-h-screen bg-primary">
