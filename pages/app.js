@@ -26,7 +26,7 @@ export default function SaaS() {
                   />
                 </svg>
               </div>
-              <Input placeholder={Placeholder} className="rounded-full " />
+              <Input placeholder="Search" className="rounded-full " />
             </div>
           </div>
           <div className="flex flex-row">
