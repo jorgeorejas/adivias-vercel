@@ -1,5 +1,5 @@
 .root {
-  @apply inline-flex items-center justify-center px-10 py-4 text-lg font-bold leading-6 text-center text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md shadow-md cursor-pointer;
+  @apply inline-flex items-center justify-center px-10 py-4 text-lg font-bold leading-6 text-center uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md shadow-md cursor-pointer text-blue;
 }
 
 .root:hover {

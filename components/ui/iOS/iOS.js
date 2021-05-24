@@ -7,7 +7,6 @@ const Phone = (props) => {
   return (
     <Component className={className}>
       <div className={s.iphone}>
-        <div className={s.pill} />
         <div className={s.header}>
           <div className={s.tof} />
           <div className={s.cam} />

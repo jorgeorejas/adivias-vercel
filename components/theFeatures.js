@@ -2,7 +2,6 @@ import Phone from './ui/iOS';
 // Make a request
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
-import Example from './Example';
 
 export default function Features({ features }) {
   return (
@@ -19,7 +18,7 @@ export default function Features({ features }) {
           </div>
           <div className="h-48 m-auto overflow-hidden lg:h-auto ">
             <Phone>
-              <Example />
+              <img src="/Adivias.jpeg" className="w-full h-full" />
             </Phone>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-
+import Input from '@/components/ui/Input';
 import LoadingDots from '@/components/ui/LoadingDots';
 import Layout from '@/components/Layout';
 import Button from '@/components/ui/Button';
@@ -24,12 +24,13 @@ function Card({ title, description, footer, children }) {
 }
 export default function Account() {
   const [loading, setLoading] = useState(false);
+  const [showKeys, setShowKeys] = useState(false);
   const router = useRouter();
   const { userLoaded, user, session, userDetails, subscription } = useUser();
 
-  useEffect(() => {
-    if (!user) router.replace('/signin');
-  }, [user]);
+useEffect(() => {
+  if (!user) router.replace('/signin');
+}, [user]);
 
   const redirectToCustomerPortal = async () => {
     setLoading(true);
@@ -40,6 +41,10 @@ export default function Account() {
     if (error) return alert(error.message);
     window.location.assign(url);
     setLoading(false);
+  };
+  const redirectToDashboard = async () => {
+    setLoading(true);
+    router.replace('/app');
   };
 
   const subscriptionName = subscription && subscription.prices.products.name;
@@ -55,16 +60,53 @@ export default function Account() {
     <Layout>
       <section className="mb-32 bg-primary">
         <div className="max-w-6xl px-4 pt-8 pb-8 mx-auto sm:pt-24 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:flex-col sm:align-center">
+          <div className="gap-4 sm:flex sm:flex-col sm:align-center">
             <h1 className="text-4xl font-extrabold text-primary sm:text-center sm:text-6xl">
-              Account
+              {userDetails ? `${userDetails?.full_name ?? ''}` : 'Account'}
             </h1>
-            <p className="max-w-2xl m-auto mt-5 text-base text-xl sm:text-center sm:text-2xl">
-              We partnered with Stripe for a simplified billing.
-            </p>
+            <Button
+              className="w-1/3 m-auto"
+              variant="slim"
+              loading={loading}
+              disabled={loading || !subscription}
+              onClick={redirectToDashboard}
+            >
+              Access Dashboard
+            </Button>
           </div>
         </div>
         <div className="p-4">
+          <Card
+            title="Your Keys"
+            description="Your API keys"
+            footer={
+              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+                <p className="pb-4 sm:pb-0">Reveal your keys.</p>
+                <Button
+                  variant="slim"
+                  onClick={() => setShowKeys(!showKeys)}
+                  loading={loading}
+                  disabled={loading || !subscription}
+                  className="w-1/3"
+                >
+                  {showKeys ? 'Reveal' : 'Hide'}
+                </Button>
+              </div>
+            }
+          >
+            <p className="px-4 py-2 border rounded-lg">
+              {showKeys
+                ? '●●●●●●●●●●●●●●●●●●'
+                : 'jadfkfpoiewjqewriprjqwriopujreqip'}
+            </p>
+          </Card>
+          <hr className="w-screen p-4 -ml-4" />
+          <h1 className="text-4xl font-extrabold text-primary sm:text-center sm:text-6xl">
+            Account Info
+          </h1>
+          <p className="max-w-2xl m-auto mt-5 text-base text-xl sm:text-center sm:text-2xl">
+            We partnered with Stripe for a simplified billing.
+          </p>
           <Card
             title="Your Plan"
             description={
