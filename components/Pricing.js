@@ -13,11 +13,11 @@ function Check() {
     <svg id="check" viewBox="0 0 20 16" className="h-4 m-auto">
       <path
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="#37b679"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
         d="M468 1447L475 1455 484 1443"
         transform="translate(-466 -1441)"
       ></path>
@@ -30,11 +30,11 @@ function Cross() {
     <svg id="cross" viewBox="0 0 16 16" className="h-4 m-auto">
       <g
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
         stroke="#da3c3c"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="3"
       >
         <path d="M0 12L12 0" transform="translate(2 2)"></path>
         <path

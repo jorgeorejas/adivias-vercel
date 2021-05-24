@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-20 flex flex-wrap items-center p-3 lg:max-w-6xl lg:mb-4 lg:mx-auto lg:flex-row lg:justify-between lg:self-center bg-primary">
+      <nav className="sticky top-0 z-20 flex flex-wrap items-center p-3 lg:rounded-b lg:max-w-6xl lg:mb-4 lg:mx-auto lg:flex-row lg:justify-between lg:self-center bg-primary">
         <a href="#skip" className="sr-only focus:not-sr-only">
           Skip to content
         </a>

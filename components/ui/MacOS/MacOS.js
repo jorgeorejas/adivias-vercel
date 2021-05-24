@@ -32,7 +32,7 @@ const MacOS = (props) => {
             <h1 className="leading-8 text-center align-middle ">{title}</h1>
           </div>
         </div>
-        <div className="flex flex-wrap w-full h-full p-4 space-y-4 overflow-auto items-evenly justify-evenly lg:p-4">
+        <div className="flex flex-wrap w-full h-full gap-4 p-4 overflow-auto items-evenly justify-evenly lg:p-4">
           {children}
         </div>
       </div>

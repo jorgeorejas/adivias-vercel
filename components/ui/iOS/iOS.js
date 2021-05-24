@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef } from 'react';
 import s from './iOS.module.css';
 
-const Phone = forwardRef((props) => {
+const Phone = (props) => {
   const { className, children, Component = 'div' } = props;
 
   return (
@@ -22,6 +22,6 @@ const Phone = forwardRef((props) => {
       </div>
     </Component>
   );
-});
+};
 
 export default Phone;
