@@ -114,6 +114,7 @@ export default function SaaS() {
 
   const day = new Date().getDate();
   var weekday = dateObj.toLocaleString('default', { weekday: 'short' });
+
   useEffect(() => {
     if (!user) router.replace('/signin');
   }, [user]);
@@ -122,7 +123,7 @@ export default function SaaS() {
     <>
       <div className="min-h-screen bg-primary">
         <AppNavbar title="Dashboard" />
-        <div className="grid grid-cols-1 p-4 overflow-y-auto gap-y-2 md:grid-cols-5 md:gap-4 ">
+        <div className="grid grid-cols-1 p-4 overflow-y-auto gap-y-2 md:grid-cols-5 md:gap-4 md:grid-rows-6 ">
           <Card className="flex flex-row overflow-x-auto text-md md:grid md:grid-cols-4 md:grid-rows-2 md:gap-2">
             <button className="w-1/4 p-2 m-auto text-center align-middle rounded-full md:text-base md:rounded-lg md:w-full md:h-full bg-blue">
               <p>1d</p>
@@ -202,7 +203,29 @@ export default function SaaS() {
             <h1 className="font-semibold text-md">Likes evolution</h1>
             <Line data={data} options={options} />
           </Card>
-          <Card className="flex flex-col px-4 md:row-span-2"></Card>
+          <Card className="flex flex-col px-4 md:row-span-2">
+            <h1 className="font-semibold text-md">Likes evolution</h1>
+          </Card>
+          <Card className="flex flex-col md:col-span-5 md:row-span-3">
+            <h1 className="font-semibold text-md">Last posts insights</h1>
+            <div className="grid grid-cols-5 gap-2 overflow-y-auto">
+              <Card className="flex flex-row">
+                <img src="/me.jpeg" className="w-1/2 rounded-lg " />
+                <table className="w-1/2 h-full m-auto">
+                  <thead>
+                    <tr>
+                      <th className="text-left">Likes</th>
+                      <td>121</td>
+                    </tr>
+                    <tr>
+                      <th className="text-left">Comments</th>
+                      <td>24</td>
+                    </tr>
+                  </thead>
+                </table>
+              </Card>
+            </div>
+          </Card>
         </div>
       </div>
     </>

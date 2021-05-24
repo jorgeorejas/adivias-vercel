@@ -13,23 +13,33 @@ export default function AppNavbar(props) {
       <Head>
         <title>Adivias | {title}</title>
       </Head>
-      <div className="sticky flex flex-row p-4 border-b">
-        <button
-          className="p-3 mx-4 text-base rounded-lg ring-none"
-          onClick={() => setMenu(!menu)}
-        >
-          <svg className="w-6 h-6 m-auto stroke-current">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-        <a className="my-auto ">
-          <Logo />
-        </a>
+      <div className="sticky flex flex-row justify-between p-4 border-b">
+        <div>
+          <button
+            className="p-3 mx-4 text-base rounded-lg ring-none"
+            onClick={() => setMenu(!menu)}
+          >
+            <svg className="w-6 h-6 m-auto stroke-current">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <a className="my-auto ">
+            <Logo />
+          </a>
+        </div>
+        {/* <div className="w-2/5 p-4 border rounded-full md:w-1/6">
+          <select className="w-full">
+            <option value="value1" selected>
+              Instagram
+            </option>
+            <option value="value2">Twitter</option>
+          </select>
+        </div> */}
       </div>
       <div
         className={`${
