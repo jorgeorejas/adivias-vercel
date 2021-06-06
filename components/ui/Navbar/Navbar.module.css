@@ -3,7 +3,7 @@
 }
 
 .link {
-  @apply inline-flex items-center p-1 text-base font-medium leading-6 transition duration-75 ease-in-out rounded-md cursor-pointer;
+  @apply inline-flex items-center p-1 text-base font-medium leading-6 text-center transition duration-75 ease-in-out rounded-md cursor-pointer;
 }
 
 .link:hover {

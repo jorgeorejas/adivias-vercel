@@ -21,9 +21,10 @@
   width: 342px;
   z-index: 1;
 }
-
+.iphone{ background: white;}
+.screen{background: white;}
 .iphone .screen {
-  background: #000;
+
   background-position: center center;
   background-size: cover;
   border-radius: 33px;
