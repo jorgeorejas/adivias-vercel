@@ -1,96 +1,5 @@
 import MacOS from '@/components/ui/MacOS';
-import { Line } from 'react-chartjs-2';
-
-const data = {
-  labels: [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24',
-    '25',
-    '26',
-    '27',
-    '28',
-    '29',
-    '30',
-    '31'
-  ],
-  datasets: [
-    {
-      label: 'Increment of followers',
-      data: [
-        '12',
-        '2',
-        '31',
-        '14',
-        '52',
-        '16',
-        '37',
-        '48',
-        '39',
-        '18',
-        '97',
-        '22',
-        '53',
-        '47',
-        '35',
-        '46',
-        '47',
-        '52',
-        '16',
-        '37',
-        '48',
-        '39',
-        '18',
-        '117',
-        '46',
-        '47',
-        '52',
-        '36',
-        '23',
-        '187',
-        '124'
-      ],
-      tension: 0.4,
-      fill: true,
-      backgroundColor: 'rgb(191, 219, 254,0.1)',
-      borderColor: 'rgb(191, 219, 254)'
-    }
-  ]
-};
-
-const options = {
-  responsive: true,
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true
-        }
-      }
-    ]
-  }
-};
+import PlaceholderChart from './ui/PhChart';
 
 export function Stack() {
   return (
@@ -216,7 +125,7 @@ export function MRR() {
           </div>
         </div>
         <div className="hidden md:block">
-          <Line data={data} options={options} height="1rem" width="4rem" />
+          <PlaceholderChart />
         </div>
       </div>
     </MacOS>

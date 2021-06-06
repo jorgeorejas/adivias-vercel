@@ -38,7 +38,8 @@ const social = [
   { id: 2, name: 'TikTok' },
   { id: 3, name: 'Facebook' },
   { id: 4, name: 'ClubHouse' },
-  { id: 5, name: 'Website' }
+  { id: 5, name: 'Website' },
+  { id: 6, name: 'Spotify' }
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -46,7 +47,7 @@ function classNames(...classes) {
 function Selector() {
   const [selected, setSelected] = useState(social[0]);
   return (
-    <Listbox value={selected} onChange={setSelected} className="">
+    <Listbox value={selected} onChange={setSelected} classdName="">
       {({ open }) => (
         <>
           <div className="relative w-1/2 h-full mt-0">
@@ -125,16 +126,16 @@ function Selector() {
 }
 
 function LapsesSelector() {
-  const [selectedLapse, setSelectedLapse] = useState(lapses[0]);
+  const [selected, setSelected] = useState(lapses[0]);
   return (
-    <Listbox value={selectedLapse.id} onChange={setSelectedLapse} className="">
+    <Listbox value={selected} onChange={setSelected} classdName="">
       {({ open }) => (
         <>
           <div className="relative w-1/2 h-full mt-0">
             <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-lg cursor-click focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue sm:text-sm">
               <span className="flex items-center">
-                <span className="ml-3 text-base truncate ">
-                  {selectedLapse.name}
+                <span className="block ml-3 text-base truncate">
+                  {selected.name}
                 </span>
               </span>
               <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
@@ -144,6 +145,7 @@ function LapsesSelector() {
                 />
               </span>
             </Listbox.Button>
+
             <Transition
               show={open}
               as={Fragment}
@@ -155,9 +157,9 @@ function LapsesSelector() {
                 static
                 className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               >
-                {lapses.map((lapse) => (
+                {lapses.map((item) => (
                   <Listbox.Option
-                    key={lapse.id}
+                    key={item.id}
                     className={({ active }) =>
                       classNames(
                         active
@@ -166,9 +168,9 @@ function LapsesSelector() {
                         'cursor-default select-none relative '
                       )
                     }
-                    value={lapse}
+                    value={item}
                   >
-                    {({ active, selected }) => (
+                    {({ selected, active }) => (
                       <>
                         <div className="flex items-center">
                           <span
@@ -177,9 +179,10 @@ function LapsesSelector() {
                               ' block w-full px-2 py-1 ml-3'
                             )}
                           >
-                            {lapse.name}
+                            {item.name}
                           </span>
                         </div>
+
                         {selected ? (
                           <span
                             className={classNames(
