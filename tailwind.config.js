@@ -5,6 +5,7 @@ module.exports = {
   },
   theme: {
     extend: {
+      gridTemplateRows: { 12: 'repeat(12, minmax(0, 1fr))' },
       maxWidth: {
         '8xl': '1920px'
       },
@@ -32,7 +33,8 @@ module.exports = {
         cyan: 'var(--cyan)',
         blue: 'var(--blue)',
         green: 'var(--green)',
-        red: 'var(--red)'
+        red: 'var(--red)',
+        blueish: 'var(--blueish)'
       },
       textColor: {
         base: 'var(--text-base)',

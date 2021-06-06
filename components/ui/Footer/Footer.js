@@ -46,20 +46,20 @@ export default function Footer() {
           </ul>
         </div>
         <div className="invisible hidden col-span-1 md:block lg:col-span-2">
-          <ul className="flex flex-col flex-initial md:flex-1">
-            <li className="py-3 md:py-0 md:pb-4">
+          <ul className="flex flex-row flex-initial md:flex-1">
+            <li className="py-3 md:py-0">
               <p className="font-bold transition duration-150 ease-in-out text-primary hover:text-accents-6">
                 LEGAL
               </p>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li className="py-3 md:py-0">
               <Link href="/">
                 <a className="transition duration-150 ease-in-out text-primary hover:text-accents-6">
                   Privacy Policy
                 </a>
               </Link>
             </li>
-            <li className="py-3 md:py-0 md:pb-4">
+            <li className="py-3 md:py-0">
               <Link href="/">
                 <a className="transition duration-150 ease-in-out text-primary hover:text-accents-6">
                   Terms of Use

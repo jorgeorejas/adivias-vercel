@@ -1,119 +1,21 @@
-import Logo from '@/components/icons/Logo';
-import Input from '@/components/ui/Input';
 import { useUser } from '@/utils/useUser';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
-import cn from 'classnames';
-import AppNavbar from '@/components/ui/AppNavbar';
-
-import { Line } from 'react-chartjs-2';
-const data = {
-  labels: [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12',
-    '13',
-    '14',
-    '15',
-    '16',
-    '17',
-    '18',
-    '19',
-    '20',
-    '21',
-    '22',
-    '23',
-    '24',
-    '25',
-    '26',
-    '27',
-    '28',
-    '29',
-    '30',
-    '31'
-  ],
-  datasets: [
-    {
-      label: 'Increment of followers',
-      data: [
-        '12',
-        '2',
-        '31',
-        '14',
-        '52',
-        '16',
-        '37',
-        '48',
-        '39',
-        '18',
-        '97',
-        '22',
-        '53',
-        '47',
-        '35',
-        '46',
-        '47',
-        '52',
-        '16',
-        '37',
-        '48',
-        '39',
-        '18',
-        '117',
-        '46',
-        '47',
-        '52',
-        '36',
-        '23',
-        '187',
-        '124'
-      ],
-      tension: 0.4,
-      fill: true,
-      backgroundColor: 'rgb(191, 219, 254,0.1)',
-      borderColor: 'rgb(191, 219, 254)'
-    }
-  ]
-};
-
-const options = {
-  responsive: true,
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true
-        }
-      }
-    ]
-  }
-};
-
-function Card({ children, className }) {
-  const classNameContent = cn(
-    className,
-    'flex flex-row gap-2 p-2 border shadow rounded-xl'
-  );
-  return <div className={classNameContent}>{children}</div>;
-}
+import AppLayout from '@/components/AppLayout';
+import React from 'react';
+import Card from '@/components/ui/Card';
+import {
+  ChatIcon,
+  ThumbUpIcon,
+  UserAddIcon,
+  UserGroupIcon
+} from '@heroicons/react/outline';
+import PlaceholderChart from '@/components/ui/PhChart';
 
 export default function SaaS() {
-  const { user } = useUser();
+  const { userDetails } = useUser();
   const router = useRouter();
 
   var dateObj = new Date();
-
-  const day = new Date().getDate();
-  var weekday = dateObj.toLocaleString('default', { weekday: 'short' });
 
   // useEffect(() => {
   //   if (!user) router.replace('/signin');
@@ -121,148 +23,87 @@ export default function SaaS() {
 
   return (
     <>
-      <div className="min-h-screen bg-primary">
-        <AppNavbar title="Dashboard" />
-        <div className="grid grid-cols-1 p-4 overflow-y-auto gap-y-2 md:grid-cols-5 md:gap-4 md:grid-rows-6 ">
-          <Card className="flex flex-col md:col-span-2">
-            <div className="flex flex-row pb-2 border-b">
-              <h4 className="px-4 text-base font-bold">
-                hoy
-                <span className="font-normal text-accents-2">
-                  {' '}
-                  {day} {weekday}.
-                </span>
-              </h4>
+      <AppLayout title="Dashboard">
+        <div className="grid w-full h-full min-h-screen grid-cols-1 gap-4 py-4 md:min-h-0 md:grid-rows-2 md:grid-cols-2 ">
+          <Card className="flex flex-col w-full p-4 rounded-lg">
+            <div className="flex items-center justify-between w-full ">
+              <h1 className="font-semibold">Followers increment</h1>
+              <h2 className="text-2xl font-bold">54</h2>
             </div>
-            <div className="grid grid-cols-3">
-              <div className="px-4 py-2 border-r border-gray-200">
-                <p className="text-xl font-extrabold ">374</p>
-                <p className="text-xs font-semibold text-gray-500 ">
-                  Followers
-                </p>
+            <div className="h-full">
+              <PlaceholderChart className="" />
+            </div>
+          </Card>
+          <Card className="grid grid-cols-2 grid-rows-2 gap-4 border-none ">
+            <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
+              <div className="inline w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
+                <UserAddIcon />
               </div>
-              <div className="px-4 py-2 border-r border-gray-200">
-                <p className="text-xl font-extrabold ">0</p>
-                <p className="text-xs font-semibold text-gray-500 ">Likes</p>
+              <div className="m-auto">
+                <h3 className="font-bold">12%</h3>
               </div>
-              <div className="px-4 py-2 border-gray-200">
-                <p className="text-xl font-extrabold ">0</p>
-                <p className="text-xs font-semibold text-gray-500 ">Comments</p>
+              <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
+                <h2 className="text-2xl font-semibold">356</h2>
+                <p className="text-xs font-semibold text-gray-500">Followers</p>
               </div>
+            </Card>
+            <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
+              <div className="w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
+                <UserGroupIcon />
+              </div>
+              <div className="m-auto">
+                <h3 className="font-bold">-8%</h3>
+              </div>
+              <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
+                <h2 className="text-2xl font-semibold">446</h2>
+                <p className="text-xs font-semibold text-gray-500">Following</p>
+              </div>
+            </Card>
+            <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
+              <div className="inline w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
+                <ThumbUpIcon />
+              </div>
+              <div className="m-auto">
+                <h3 className="font-bold">34%</h3>
+              </div>
+              <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
+                <h2 className="text-2xl font-semibold">45</h2>
+                <p className="text-xs font-semibold text-gray-500">Likes</p>
+              </div>
+            </Card>
+            <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
+              <div className="w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
+                <ChatIcon />
+              </div>
+              <div className="m-auto">
+                <h3 className="font-bold">3%</h3>
+              </div>
+              <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
+                <h2 className="text-2xl font-semibold">12</h2>
+                <p className="text-xs font-semibold text-gray-500">Comments</p>
+              </div>
+            </Card>
+          </Card>
+          <Card className="flex flex-col p-4 rounded-lg ">
+            <div className="flex items-center justify-between w-full ">
+              <h1 className="font-semibold">Followers increment</h1>
+              <h2 className="text-2xl font-bold">54</h2>
+            </div>
+            <div className="h-full">
+              <PlaceholderChart className="" />
             </div>
           </Card>
-          <Card className="flex flex-col">
-            <h2 className="font-semibold text-md">Links page</h2>
-            <div className="flex flex-row w-full h-full gap-4">
-              <button className="w-1/2 p-4 border rounded-lg">
-                <h1>Visit</h1>
-              </button>
-              <button className="w-1/2 p-4 border rounded-lg">
-                <h1>Edit</h1>
-              </button>
+          <Card className="flex flex-col p-4 rounded-lg ">
+            <div className="flex items-center justify-between w-full ">
+              <h1 className="font-semibold">Followers increment</h1>
+              <h2 className="text-2xl font-bold">54</h2>
             </div>
-          </Card>
-          <Card className="flex flex-col">
-            <h2 className="font-semibold text-md">Create from WP</h2>
-            <div className="flex flex-row w-full h-full gap-4">
-              <button className="w-1/2 p-4 border rounded-lg">Post</button>
-              <button className="w-1/2 p-4 border rounded-lg">Story</button>
-            </div>
-          </Card>
-          <Card className="hidden md:px-4 md:flex-col md:flex md:row-span-3">
-            <h1 className="font-semibold text-md">Toolbox</h1>
-            <div className="w-full h-full p-2 rounded-lg"></div>
-          </Card>
-          <Card className="flex flex-col px-4 md:col-span-2 md:row-span-2">
-            <h1 className="font-semibold text-md">New followers evolution</h1>
-            <Line data={data} options={options} />
-          </Card>
-          <Card className="flex flex-col px-4 md:col-span-2 md:row-span-2">
-            <h1 className="font-semibold text-md">Likes evolution</h1>
-            <Line data={data} options={options} />
-          </Card>
-          <Card className="flex flex-col md:col-span-5 md:row-span-3">
-            <h1 className="font-semibold text-md">Last posts insights</h1>
-            <div className="grid grid-cols-2 row-span-2 gap-2 overflow-y-auto md:grid-rows-2 md:grid-cols-5">
-              <Card className="flex flex-col p-2 md:flex-row">
-                <img src="/me.jpeg" className="rounded-lg md:w-1/2 " />
-                <table className="w-1/2 h-full m-auto">
-                  <thead>
-                    <tr>
-                      <th className="text-left">Likes</th>
-                      <td>121</td>
-                    </tr>
-                    <tr>
-                      <th className="text-left">Comments</th>
-                      <td>24</td>
-                    </tr>
-                  </thead>
-                </table>
-              </Card>
-              <Card className="flex flex-col p-2 md:flex-row">
-                <img src="/me.jpeg" className="rounded-lg md:w-1/2 " />
-                <table className="w-1/2 h-full m-auto">
-                  <thead>
-                    <tr>
-                      <th className="text-left">Likes</th>
-                      <td>121</td>
-                    </tr>
-                    <tr>
-                      <th className="text-left">Comments</th>
-                      <td>24</td>
-                    </tr>
-                  </thead>
-                </table>
-              </Card>
-              <Card className="flex flex-col p-2 md:flex-row">
-                <img src="/me.jpeg" className="rounded-lg md:w-1/2 " />
-                <table className="w-1/2 h-full m-auto">
-                  <thead>
-                    <tr>
-                      <th className="text-left">Likes</th>
-                      <td>121</td>
-                    </tr>
-                    <tr>
-                      <th className="text-left">Comments</th>
-                      <td>24</td>
-                    </tr>
-                  </thead>
-                </table>
-              </Card>
-              <Card className="flex flex-col p-2 md:flex-row">
-                <img src="/me.jpeg" className="rounded-lg md:w-1/2 " />
-                <table className="w-1/2 h-full m-auto">
-                  <thead>
-                    <tr>
-                      <th className="text-left">Likes</th>
-                      <td>121</td>
-                    </tr>
-                    <tr>
-                      <th className="text-left">Comments</th>
-                      <td>24</td>
-                    </tr>
-                  </thead>
-                </table>
-              </Card>
-              <Card className="flex flex-col p-2 md:flex-row">
-                <img src="/me.jpeg" className="rounded-lg md:w-1/2 " />
-                <table className="w-1/2 h-full m-auto">
-                  <thead>
-                    <tr>
-                      <th className="text-left">Likes</th>
-                      <td>121</td>
-                    </tr>
-                    <tr>
-                      <th className="text-left">Comments</th>
-                      <td>24</td>
-                    </tr>
-                  </thead>
-                </table>
-              </Card>
+            <div className="h-full ">
+              <PlaceholderChart className="" />
             </div>
           </Card>
         </div>
-      </div>
+      </AppLayout>
     </>
   );
 }
