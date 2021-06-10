@@ -1,13 +1,13 @@
 import Phone from './ui/iOS';
-// Make a request
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
-import MacOS from './ui/MacOS';
-import { TerminalIcon } from '@heroicons/react/outline';
 
-export default function Features({ features }) {
+import Link from 'next/link';
+
+import MacOS from './ui/MacOS';
+import Button from './ui/Button';
+
+export default function Main() {
   return (
-    <section className="min-h-screen py-8 bg-primary" id="features">
+    <section className="min-h-screen py-8 bg-primary">
       <div className="h-screen overflow-hidden">
         <div className="flex flex-col max-w-6xl gap-6 px-4 py-8 mx-auto sm:px-6d lg:px-8">
           <h1 className="max-w-2xl m-auto text-base text-4xl font-semibold text-left lg:text-center lg:text-7xl">
@@ -25,35 +25,28 @@ export default function Features({ features }) {
               Try it for free
             </a>
             <Link href="/live">
-              <a className="px-4 py-2 font-medium text-center bg-gray-800 rounded-lg text-blue">
+              <a className="px-4 py-2 font-medium text-center rounded-lg bg-blue">
                 Live demo
               </a>
             </Link>
             <p className="col-span-2 text-sm text-center text-gray-500">
               No credit card required.
             </p>
+            <Link href="/features">
+              <Button className="col-span-2" variant="slim">
+                Take me to the features
+              </Button>
+            </Link>
           </div>
         </div>
-        <div className="max-w-6xl m-auto">
+        <div className="flex flex-col justify-center m-auto lg:p-8 lg:max-w-6xl">
           <MacOS className="hidden lg:block">
             <img src="/Adivias.jpeg" className="blur-lg" />
           </MacOS>
-          <Phone className="block lg:hidden">
-            <iframe src="/app" className="w-full h-full mt-6" />
+          <Phone className="block m-auto lg:hidden">
+            <img src="/Adivias-mobile.png" className="blur-lg" />
           </Phone>
         </div>
-      </div>
-      <div className="max-w-6xl p-5 m-auto ">
-        <h1 className="m-auto text-4xl italic text-center ">
-          Work in progress...
-        </h1>
-        <p className="text-2xl text-center">
-          🚧{' '}
-          <span className="transform">
-            Caution, You are accesing a construiction zone.
-          </span>{' '}
-          🚧
-        </p>
       </div>
     </section>
   );

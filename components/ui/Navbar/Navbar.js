@@ -25,7 +25,7 @@ const Navbar = () => {
           className="inline-flex p-2 ml-auto bg-gray-800 rounded-md outline-none text-blue hover:bg-blue-600 lg:hidden hover:text-white"
           onClick={() => setNavbarOpen(!navbarOpen)}
         >
-          <MenuIcon className="w-7"/>
+          <MenuIcon className="w-7" />
         </button>
 
         <div
@@ -39,7 +39,7 @@ const Navbar = () => {
                 <Link href="/#pricing">
                   <a className={s.link}>Pricing</a>
                 </Link>
-                <Link href="/#features">
+                <Link href="/features">
                   <a className={s.link}>Features</a>
                 </Link>
                 <Link href="/signin">
