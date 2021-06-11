@@ -38,7 +38,7 @@
 }
 
 .no-layout{
-  min-height: calc(100vh - 84px - 216px);
+  min-height: calc(70vh);
 }
 
 *,
