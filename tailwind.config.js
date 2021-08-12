@@ -4,6 +4,7 @@ module.exports = {
     animation: ['motion-reduce']
   },
   theme: {
+    fontFamily: { hand: ['Handlee, cursive'] },
     extend: {
       gridTemplateRows: { 12: 'repeat(12, minmax(0, 1fr))' },
       maxWidth: {

@@ -30,4 +30,3 @@ export const updateUserName = async (user, name) => {
     })
     .eq('id', user.id);
 };
-

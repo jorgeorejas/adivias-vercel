@@ -7,11 +7,7 @@ import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { useUser } from '@/utils/useUser';
 import { Disclosure, Switch } from '@headlessui/react';
-import {
-  XIcon,
-  CheckIcon,
-  ChevronDoubleDownIcon
-} from '@heroicons/react/outline';
+import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 
 const included = {
   Free: {
@@ -117,7 +113,8 @@ export default function Pricing({ products }) {
       <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="gap-4 sm:flex sm:flex-col sm:align-center">
           <h1 className="max-w-4xl text-base text-4xl font-extrabold sm:text-8xl">
-            Flexible pricing tailored to you.
+            One plan,
+            <br /> all the features.
           </h1>
           <Switch.Group>
             <div className="flex flex-col justify-center ">
@@ -145,16 +142,16 @@ export default function Pricing({ products }) {
                     } inline-block w-4 h-4 transform bg-blue rounded-full transition-transform`}
                   />
                 </Switch>
-                <span className="relative" className="text-xl sm:text-2xl">
-                  Yearly{' '}
-                  <span
-                    className={`${
-                      billingInterval === 'year'
-                        ? 'bg-blue text-gray-800 '
-                        : 'hidden'
-                    }  px-2 py-1 rounded absolute w-auto text-lg sm:text-xl whitespace-nowrap ml-2 my-auto transform animate-bounce `}
-                  >
-                    Two months off
+                <span
+                  className="relative"
+                  className="flex items-center content-center justify-center gap-2 text-xl sm:text-2xl "
+                >
+                  Yearly
+                  <span className="flex">
+                    <img src="./arrow.svg" className="transform rotate-180" />
+                    <p className="text-sm md:text-2xl md:whitespace-nowrap font-hand">
+                      Save 2 months
+                    </p>
                   </span>
                 </span>
               </div>

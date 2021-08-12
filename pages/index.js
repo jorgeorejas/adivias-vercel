@@ -1,6 +1,5 @@
 import Main from '@/components/Main';
 import Pricing from '@/components/Pricing';
-import Cookies from '@/components/ui/Cookies';
 import { getActiveProductsWithPrices } from '@/utils/supabase-client';
 import Layout from '@/components/Layout';
 

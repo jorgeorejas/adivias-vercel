@@ -5,7 +5,6 @@ import {
   LinkIcon,
   LogoutIcon,
   PresentationChartLineIcon,
-  SearchIcon,
   CheckIcon,
   UserIcon,
   XIcon,
@@ -13,7 +12,8 @@ import {
   KeyIcon,
   MenuIcon,
   SupportIcon,
-  SelectorIcon
+  SelectorIcon,
+  BeakerIcon
 } from '@heroicons/react/outline';
 import { Listbox, Popover, Transition } from '@headlessui/react';
 import Logo from '@/components/icons/Logo';
@@ -32,97 +32,8 @@ const lapses = [
   { id: 7, name: 'All', slug: 'All' }
 ];
 
-const social = [
-  { id: 0, name: 'Instagram' },
-  { id: 1, name: 'Twitter' },
-  { id: 2, name: 'TikTok' },
-  { id: 3, name: 'Facebook' },
-  { id: 4, name: 'ClubHouse' },
-  { id: 5, name: 'Website' },
-  { id: 6, name: 'Spotify' }
-];
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
-}
-function Selector() {
-  const [selected, setSelected] = useState(social[0]);
-  return (
-    <Listbox value={selected} onChange={setSelected} classdName="">
-      {({ open }) => (
-        <>
-          <div className="relative w-1/2 h-full mt-0">
-            <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-lg cursor-click focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue sm:text-sm">
-              <span className="flex items-center">
-                <span className="block ml-3 text-base truncate">
-                  {selected.name}
-                </span>
-              </span>
-              <span className="absolute inset-y-0 right-0 flex items-center pr-2 ml-3 pointer-events-none">
-                <SelectorIcon
-                  className="w-5 h-5 text-gray-400"
-                  aria-hidden="true"
-                />
-              </span>
-            </Listbox.Button>
-
-            <Transition
-              show={open}
-              as={Fragment}
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <Listbox.Options
-                static
-                className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-              >
-                {social.map((item) => (
-                  <Listbox.Option
-                    key={item.id}
-                    className={({ active }) =>
-                      classNames(
-                        active
-                          ? 'text-black bg-blue text-base border '
-                          : 'text-base',
-                        'cursor-default select-none relative '
-                      )
-                    }
-                    value={item}
-                  >
-                    {({ selected, active }) => (
-                      <>
-                        <div className="flex items-center">
-                          <span
-                            className={classNames(
-                              selected ? 'font-semibold' : 'font-normal',
-                              ' block w-full px-2 py-1 ml-3'
-                            )}
-                          >
-                            {item.name}
-                          </span>
-                        </div>
-
-                        {selected ? (
-                          <span
-                            className={classNames(
-                              active ? 'text-black' : 'text-blue',
-                              'absolute inset-y-0 right-0 flex items-center pr-4'
-                            )}
-                          >
-                            <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                          </span>
-                        ) : null}
-                      </>
-                    )}
-                  </Listbox.Option>
-                ))}
-              </Listbox.Options>
-            </Transition>
-          </div>
-        </>
-      )}
-    </Listbox>
-  );
 }
 
 function LapsesSelector() {
@@ -131,7 +42,7 @@ function LapsesSelector() {
     <Listbox value={selected} onChange={setSelected} classdName="">
       {({ open }) => (
         <>
-          <div className="relative w-1/2 h-full mt-0">
+          <div className="relative w-full h-full mt-0">
             <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white border border-gray-300 rounded-lg cursor-click focus:outline-none focus:ring-1 focus:ring-blue focus:border-blue sm:text-sm">
               <span className="flex items-center">
                 <span className="block ml-3 text-base truncate">
@@ -221,9 +132,13 @@ export default function AppLayout({ children, title }) {
             navbarOpen ? 'absolute z-30 top-16 md:block' : ' md:grid hidden'
           }  w-screen md:h-screen md:w-2/12 grid-rows-12 bg-secondary-2 `}
         >
-          <div className="flex-row items-center justify-center hidden w-full row-span-1 p-4 md:flex ">
-            <Logo className="text-3xl" />
-          </div>
+          <Link href="/">
+            <a>
+              <div className="flex-row items-center justify-center hidden w-full row-span-1 p-4 md:flex ">
+                <Logo className="text-3xl" />
+              </div>
+            </a>
+          </Link>
           <div className="row-span-1 " />
           <div className="grid grid-rows-4 row-span-5 ">
             <Link href="/app/">
@@ -250,16 +165,16 @@ export default function AppLayout({ children, title }) {
                 Stats
               </a>
             </Link>
-            <Link href="/app/accounts">
+            <Link href="/app/lab">
               <a
                 className={`${
-                  title == 'Accounts'
+                  title == 'Lab'
                     ? 'border-blue bg-blueish  md:border-r-4 md:border-b-0 border-b-4'
                     : ''
                 } flex flex-row items-center justify-start w-full row-span-1 p-4 font-semibold   text-md gap-x-3  `}
               >
-                <UserIcon className="w-6 text-base" />
-                Connected Accounts
+                <BeakerIcon className="w-6 text-base" />
+                Lab
               </a>
             </Link>
             <Link href="/app/links">
@@ -413,14 +328,11 @@ export default function AppLayout({ children, title }) {
                 )}
               </Popover>
             </div>
-            <div className="flex flex-col items-center justify-between w-full h-auto border-b md:gap-4 md:flex-row md:h-1/2 ">
-              <div className="md:w-1/2">
-                <h1 className="mr-4 text-2xl font-semibold">{title}</h1>
-              </div>
-              <div className="relative flex w-full gap-4 my-2 md:w-1/2">
-                <Selector />
-                <LapsesSelector />
-              </div>
+
+            <div className="grid w-full grid-cols-4 py-2 border-b">
+              <h1 className="mr-4 text-2xl font-semibold">{title}</h1>
+              <div className="col-span-2" />
+              <LapsesSelector />
             </div>
           </div>
           {children}

@@ -29,9 +29,6 @@ export default function Main() {
                 Live demo
               </a>
             </Link>
-            <p className="col-span-2 text-sm text-center text-gray-500">
-              No credit card required.
-            </p>
             <Link href="/features">
               <Button className="col-span-2" variant="slim">
                 Take me to the features
