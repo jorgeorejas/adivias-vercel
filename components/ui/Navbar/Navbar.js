@@ -42,9 +42,6 @@ const Navbar = () => {
                 <Link href="/features">
                   <a className={s.link}>Features</a>
                 </Link>
-                <Link href="/signin">
-                  <a className={s.link}>Sign in</a>
-                </Link>
               </div>
               {user ? (
                 <>
@@ -58,9 +55,9 @@ const Navbar = () => {
                       </div>
                     </a>
                   </Link>
-                  <Link href="#">
+                  <Link href="/signin">
                     <a className="{s.link}" onClick={() => signOut()}>
-                      <div className="items-center justify-center w-full px-3 py-2 font-semibold bg-gray-800 rounded-md text-blue lg:inline-flex lg:w-auto hover:underline hover:text-white ">
+                      <div className="items-center justify-center w-full px-3 py-2 font-semibold bg-gray-800 rounded-md text-blue lg:inline-flex lg:w-auto hover:underline hover:text-white whitespace-nowrap">
                         Log out
                       </div>
                     </a>

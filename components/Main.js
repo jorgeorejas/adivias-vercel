@@ -21,7 +21,10 @@ export default function Main() {
           </p>
           <hr className="invisible hidden lg:block" />
           <div className="grid grid-cols-2 m-auto gap-y-2 gap-x-4">
-            <a className="px-4 py-2 font-medium text-center rounded-lg bg-blue">
+            <a
+              className="px-4 py-2 font-medium text-center rounded-lg bg-blue"
+              href="#pricing"
+            >
               Try it for free
             </a>
             <Link href="/live">

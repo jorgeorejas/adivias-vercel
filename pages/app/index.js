@@ -3,14 +3,11 @@ import { useRouter } from 'next/router';
 import AppLayout from '@/components/AppLayout';
 import React from 'react';
 import Card from '@/components/ui/Card';
-import {
-  ChatIcon,
-  ThumbUpIcon,
-  UserAddIcon,
-  UserGroupIcon
-} from '@heroicons/react/outline';
-import PlaceholderChart from '@/components/ui/PhChart';
 
+import * as Outline from '@heroicons/react/outline';
+import * as Solid from '@heroicons/react/solid';
+import PlaceholderChart from '@/components/ui/PhChart';
+import * as temporary from '../../temporary.json';
 export default function SaaS() {
   const { userDetails } = useUser();
   const router = useRouter();
@@ -37,19 +34,21 @@ export default function SaaS() {
           <Card className="grid grid-cols-2 grid-rows-2 gap-4 border-none ">
             <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
               <div className="inline w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
-                <UserAddIcon />
+                <Outline.UserAddIcon />
               </div>
               <div className="m-auto">
                 <h3 className="font-bold">12%</h3>
               </div>
               <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
-                <h2 className="text-2xl font-semibold">356</h2>
+                <h2 className="text-2xl font-semibold">
+                  {temporary.Followers.total}
+                </h2>
                 <p className="text-xs font-semibold text-gray-500">Followers</p>
               </div>
             </Card>
             <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
               <div className="w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
-                <UserGroupIcon />
+                <Outline.UserGroupIcon />
               </div>
               <div className="m-auto">
                 <h3 className="font-bold">-8%</h3>
@@ -61,25 +60,25 @@ export default function SaaS() {
             </Card>
             <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
               <div className="inline w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
-                <ThumbUpIcon />
+                <Outline.ThumbUpIcon />
               </div>
               <div className="m-auto">
                 <h3 className="font-bold">34%</h3>
               </div>
               <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
-                <h2 className="text-2xl font-semibold">45</h2>
+                <h2 className="text-2xl font-semibold">{temporary.Likes}</h2>
                 <p className="text-xs font-semibold text-gray-500">Likes</p>
               </div>
             </Card>
             <Card className="grid items-center grid-cols-2 grid-rows-2 border ">
               <div className="w-12 h-12 p-2 m-auto bg-secondary-2 rounded-2xl">
-                <ChatIcon />
+                <Outline.ChatIcon />
               </div>
               <div className="m-auto">
                 <h3 className="font-bold">3%</h3>
               </div>
               <div className="inline-flex flex-col items-center justify-center col-span-2 px-2 rounded-lg">
-                <h2 className="text-2xl font-semibold">12</h2>
+                <h2 className="text-2xl font-semibold">{temporary.Comments}</h2>
                 <p className="text-xs font-semibold text-gray-500">Comments</p>
               </div>
             </Card>

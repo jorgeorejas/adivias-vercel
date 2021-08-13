@@ -6,55 +6,8 @@ import Button from '@/components/ui/Button';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { useUser } from '@/utils/useUser';
-import { Disclosure, Switch } from '@headlessui/react';
+import { Switch } from '@headlessui/react';
 import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
-
-const included = {
-  Free: {
-    StatsDashboard: true,
-    Accounts: '1',
-    Embeds: '1',
-    AutoPublish: false,
-    LinksPage: false,
-    WPConnection: false,
-    Growth: false,
-    Ambassador: false,
-    Giveaways: false
-  },
-  Basic: {
-    StatsDashboard: true,
-    Accounts: '3',
-    Embeds: '5',
-    AutoPublish: true,
-    LinksPage: true,
-    WPConnection: false,
-    Growth: false,
-    Ambassador: false,
-    Giveaways: false
-  },
-  Advanced: {
-    StatsDashboard: true,
-    Accounts: '5',
-    Embeds: '15',
-    AutoPublish: true,
-    LinksPage: true,
-    WPConnection: true,
-    Growth: true,
-    Ambassador: false,
-    Giveaways: false
-  },
-  Pro: {
-    StatsDashboard: true,
-    Accounts: '10',
-    Embeds: '∞',
-    AutoPublish: true,
-    LinksPage: true,
-    WPConnection: true,
-    Growth: true,
-    Ambassador: true,
-    Giveaways: true
-  }
-};
 
 export default function Pricing({ products }) {
   const router = useRouter();
@@ -197,128 +150,13 @@ export default function Pricing({ products }) {
                     </p>
                   </div>
                   <div className="flex flex-col p-6 ">
-                    <div className="relative">
-                      <Disclosure>
-                        {({ open }) => (
-                          <>
-                            <Disclosure.Button className="flex items-center justify-between w-full focus:ring-0 focus:outline-none">
-                              <h3 className="text-lg font-semibold">
-                                Features included?
-                              </h3>
-                              <ChevronDoubleDownIcon
-                                className={`${
-                                  open ? 'transform rotate-180' : ''
-                                } h-5`}
-                              />
-                            </Disclosure.Button>
-                            <Disclosure.Panel className="absolute flex flex-col w-full gap-1 p-4 mt-4 list-none border rounded-lg shadow bg-primary">
-                              <li
-                                className={`${
-                                  included[product.name].StatsDashboard
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                Dashboard
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].Embeds ? '' : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].Embeds}{' '}
-                                {included[product.name].Embeds > 1
-                                  ? 'Embeds'
-                                  : 'Embed'}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].Accounts
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].Accounts}{' '}
-                                {included[product.name].Accounts > 1
-                                  ? 'Accounts'
-                                  : 'Account'}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].AutoPublish
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].AutoPublish
-                                  ? 'Autopublish'
-                                  : ''}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].LinksPage
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].LinksPage
-                                  ? 'Links page'
-                                  : ''}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].WPConnection
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].WPConnection
-                                  ? 'WP Connection'
-                                  : ''}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].Growth ? '' : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].Growth
-                                  ? 'Growth Assistant'
-                                  : ''}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].Ambassador
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].Ambassador
-                                  ? 'Ambassador Identifier'
-                                  : ''}
-                              </li>
-                              <li
-                                className={`${
-                                  included[product.name].Giveaways
-                                    ? ''
-                                    : 'hidden'
-                                }`}
-                              >
-                                {included[product.name].Giveaways
-                                  ? 'Giveaways'
-                                  : ''}
-                              </li>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                    </div>
                     <Button
                       variant="slim"
                       type="button"
                       disabled={session && !userLoaded}
                       loading={priceIdLoading === price.id}
                       onClick={() => handleCheckout(price.id)}
-                      className="block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
+                      className="block w-full py-2 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
                     >
                       {product.name === subscription?.prices?.products.name
                         ? 'Manage'

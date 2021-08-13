@@ -26,11 +26,18 @@ export default function Account() {
   const [loading, setLoading] = useState(false);
   const [showKeys, setShowKeys] = useState(false);
   const router = useRouter();
-  const { userLoaded, user, session, userDetails, subscription } = useUser();
+  const {
+    userLoaded,
+    user,
+    session,
+    userDetails,
+    subscription,
+    signOut
+  } = useUser();
 
-useEffect(() => {
-  if (!user) router.replace('/signin');
-}, [user]);
+  useEffect(() => {
+    if (!user) router.replace('/signin');
+  }, [user]);
 
   const redirectToCustomerPortal = async () => {
     setLoading(true);
@@ -72,6 +79,14 @@ useEffect(() => {
               onClick={redirectToDashboard}
             >
               Access Dashboard
+            </Button>
+            <Button
+              className="w-1/3 m-auto"
+              variant="slim"
+              loading={loading}
+              onClick={() => signOut()}
+            >
+              Hola
             </Button>
           </div>
         </div>
