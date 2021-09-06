@@ -7,7 +7,6 @@ import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { useUser } from '@/utils/useUser';
 import { Switch } from '@headlessui/react';
-import { ChevronDoubleDownIcon } from '@heroicons/react/outline';
 
 export default function Pricing({ products }) {
   const router = useRouter();
@@ -21,7 +20,7 @@ export default function Pricing({ products }) {
       return router.push('/signin');
     }
     if (subscription) {
-      return routxxser.push('/account');
+      return router.push('/account');
     }
 
     try {

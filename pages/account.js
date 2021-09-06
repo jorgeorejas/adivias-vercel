@@ -86,35 +86,11 @@ export default function Account() {
               loading={loading}
               onClick={() => signOut()}
             >
-              Hola
+              Log Out
             </Button>
           </div>
         </div>
         <div className="p-4">
-          <Card
-            title="Your Keys"
-            description="Your API keys"
-            footer={
-              <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
-                <p className="pb-4 sm:pb-0">Reveal your keys.</p>
-                <Button
-                  variant="slim"
-                  onClick={() => setShowKeys(!showKeys)}
-                  loading={loading}
-                  disabled={loading || !subscription}
-                  className="w-1/3"
-                >
-                  {showKeys ? 'Reveal' : 'Hide'}
-                </Button>
-              </div>
-            }
-          >
-            <p className="px-4 py-2 border rounded-lg">
-              {showKeys
-                ? '●●●●●●●●●●●●●●●●●●'
-                : 'jadfkfpoiewjqewriprjqwriopujreqip'}
-            </p>
-          </Card>
           <hr className="w-screen p-4 -ml-4" />
           <h1 className="text-4xl font-extrabold text-primary sm:text-center sm:text-6xl">
             Account Info
