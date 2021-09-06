@@ -11,7 +11,7 @@ export default function Accounts() {
           <Card className="flex flex-col row-span-2 p-2 overflow-auto shadow">
             2 Rows
           </Card>
-          <Card className="shadow"></Card>
+          <Card className="shadow" />
           <Card className="shadow" />
         </div>
       </AppLayout>
