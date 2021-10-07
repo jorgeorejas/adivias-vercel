@@ -48,10 +48,8 @@ function WIP() {
 export default function Layout({ children, meta: pageMeta }) {
   const router = useRouter();
   const meta = {
-    title: 'Adivi.as',
-    description:
-      'All-in-one social media analytics & toolbox. Brought to you by Jorge Orejas.',
-    cardImage: '/cardImage.png',
+    title: 'Boilerplate.so',
+
     ...pageMeta
   };
 

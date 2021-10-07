@@ -4,15 +4,16 @@
 const needle = require('needle');
 
 // this is the ID for @TwitterDev
-const userId = 1089101618476449792;
+const userId = 335858965;
 const url = `https://api.twitter.com/2/users/${userId}/followers`;
-const bearerToken = process.env.BEARER_KEY;
+const bearerToken =
+  'AAAAAAAAAAAAAAAAAAAAAAZMQgEAAAAAtw6BdDSS4N8McyigmGI1l5Mui%2Fg%3DCHD8a3k8O6VWGLut9VQmFsXM356UQwF7cgx79txmIY76fLIgU8';
 
 const getFollowers = async () => {
   let users = [];
   let params = {
-    max_results: 100,
-    'user.fields': 'created_at'
+    max_results: 1000,
+    'user.fields': 'created_at,verified,public_metrics'
   };
 
   const options = {

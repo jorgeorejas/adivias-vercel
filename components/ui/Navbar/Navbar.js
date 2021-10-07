@@ -66,8 +66,8 @@ const Navbar = () => {
               ) : (
                 <Link href="/signin">
                   <a className={s.link}>
-                    <div className="items-center justify-center w-full px-3 py-2 font-semibold bg-gray-800 rounded-md text-blue lg:inline-flex lg:w-auto hover:underline hover:text-white ">
-                      Access
+                    <div className="items-center justify-center w-full px-3 py-2 font-semibold bg-gray-800 rounded-md text-blue lg:inline-flex lg:w-auto hover:underline hover:text-white whitespace-nowrap">
+                      Log in
                     </div>
                   </a>
                 </Link>

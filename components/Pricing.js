@@ -70,7 +70,7 @@ export default function Pricing({ products }) {
           </h1>
           <Switch.Group>
             <div className="flex flex-col justify-center ">
-              <Switch.Label className="py-4 text-2xl text-left sm:text-4xl">
+              <Switch.Label className="hidden py-4 text-2xl text-left sm:text-4xl">
                 Billing Interval
               </Switch.Label>
               <div className="flex items-center gap-4">
