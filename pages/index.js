@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button';
 export default function PricingPage({ products, thefeatures }) {
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen overflow-hidden">
+    {/*<div className="flex flex-col items-center justify-center h-screen overflow-hidden">
         <div className="absolute z-20 flex flex-col gap-4 text-center top-36 h-1/3 justify-evenly">
           <Logo className="text-6xl" />
           <h1 className="px-4 py-2 font-mono text-base text-5xl italic font-semibold bg-opacity-50 bg-blue">
@@ -35,12 +35,12 @@ export default function PricingPage({ products, thefeatures }) {
           src="./cardImage.png"
           className="w-2/3 transform border shadow-2xl mt-96 rounded-2xl opacity-40 -rotate-12"
         />
-      </div>
-      {/* <Layout>
+      </div>*/}
+      <Layout>
         <Features features={thefeatures} />
         <Pricing products={products} />
         <Cookies />
-      </Layout> */}
+      </Layout>
     </>
   );
 }
